@@ -1,4 +1,0 @@
-Release Notes For Codename One
-------------------------------
-
-Codename One is in early beta stages and should be considered as such! Use with care!
