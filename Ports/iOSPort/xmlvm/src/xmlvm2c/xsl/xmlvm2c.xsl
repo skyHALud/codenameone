@@ -2851,9 +2851,9 @@ int main(int argc, char* argv[])
   <xsl:value-of select="@vx"/>
   <xsl:text>.i = _r</xsl:text>
   <xsl:value-of select="@vy"/>
-  <xsl:text>.i &lt;&lt; _r</xsl:text>
+  <xsl:text>.i &lt;&lt; (0x1f &amp; _r</xsl:text>
   <xsl:value-of select="@vz"/>
-  <xsl:text>.i;
+  <xsl:text>.i);
 </xsl:text>
 </xsl:template>
 
