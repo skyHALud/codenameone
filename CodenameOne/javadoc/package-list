@@ -2,6 +2,7 @@ com.codename1.ads
 com.codename1.analytics
 com.codename1.capture
 com.codename1.components
+com.codename1.contacts
 com.codename1.facebook
 com.codename1.facebook.ui
 com.codename1.impl
@@ -11,6 +12,7 @@ com.codename1.io.services
 com.codename1.location
 com.codename1.media
 com.codename1.messaging
+com.codename1.processing
 com.codename1.system
 com.codename1.ui
 com.codename1.ui.animations
