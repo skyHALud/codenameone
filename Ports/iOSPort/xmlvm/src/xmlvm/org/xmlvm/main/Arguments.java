@@ -244,6 +244,11 @@ public class Arguments {
         option_lib.add("AudioToolbox.framework~");
         option_lib.add("CoreMotion.framework");
         option_lib.add("QuickLook.framework~");
+        option_lib.add("AddressBook.framework~");
+        option_lib.add("AddressBookUI.framework~");
+        option_lib.add("CoreMedia.framework~");
+        option_lib.add("CoreVideo.framework~");
+        option_lib.add("libiconv.dylib~");
 
         // Read command line arguments
         for (int i = 0; i < argv.length; i++) {
