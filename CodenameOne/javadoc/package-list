@@ -16,6 +16,7 @@ com.codename1.maps.providers
 com.codename1.media
 com.codename1.messaging
 com.codename1.processing
+com.codename1.push
 com.codename1.share
 com.codename1.system
 com.codename1.ui
@@ -33,3 +34,7 @@ com.codename1.ui.tree
 com.codename1.ui.util
 com.codename1.util
 com.codename1.xml
+java.io
+java.lang
+java.lang.ref
+java.util
