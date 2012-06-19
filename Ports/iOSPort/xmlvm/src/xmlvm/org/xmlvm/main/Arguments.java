@@ -235,6 +235,7 @@ public class Arguments {
         option_lib.add("OpenGLES.framework~");
         option_lib.add("QuartzCore.framework~");
         option_lib.add("MessageUI.framework~");
+        option_lib.add("libsqlite3.dylib~");
         option_lib.add("MediaPlayer.framework~");
         option_lib.add("StoreKit.framework~");
         option_lib.add("CoreLocation.framework~");
