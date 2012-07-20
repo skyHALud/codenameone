@@ -37,5 +37,6 @@ com.codename1.util
 com.codename1.xml
 java.io
 java.lang
+java.lang.annotation
 java.lang.ref
 java.util
