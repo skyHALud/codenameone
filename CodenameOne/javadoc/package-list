@@ -16,6 +16,7 @@ com.codename1.maps.layers
 com.codename1.maps.providers
 com.codename1.media
 com.codename1.messaging
+com.codename1.payment
 com.codename1.processing
 com.codename1.push
 com.codename1.share
