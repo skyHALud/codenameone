@@ -32,6 +32,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  *
@@ -51,7 +52,13 @@ public class Video  extends Demo {
         Container player = new Container(new BorderLayout());
         final MediaPlayer mp = new MediaPlayer();
         try {
-            mp.setDataSource(Display.getInstance().getResourceAsStream(getClass(), "/video.mp4"), "video/mp4", null);
+            
+            InputStream is = Display.getInstance().getResourceAsStream(getClass(), "/video.mp4");
+            if(is != null) {
+                mp.setDataSource(is, "video/mp4", null);
+            } else {
+                mp.setDataSource("https://dl.dropbox.com/u/57067724/cn1/video.mp4");
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
