@@ -106,6 +106,9 @@ public class XCodeFile {
             } else if (lib.endsWith(".dylib")) {
                 filetype = "compiled.mach-o.dylib";
                 path = "usr/lib/";
+            } else if (lib.endsWith(".a")) {
+                filetype = "archive.ar";
+                path = "../btres/";
             } else {
                 Log.error("Unable to parse library " + lib + ". Ignoring.");
                 valid_lib = false;
@@ -121,10 +124,19 @@ public class XCodeFile {
                 /* Add file reference */
                 filerefs.append("\t\t").append(fileid);
                 filerefs.append(" /* ").append(lib).append(" */");
-                filerefs.append(" = { isa = PBXFileReference; lastKnownFileType = ");
-                filerefs.append(filetype).append("; name = ").append(lib);
-                filerefs.append("; path = ").append(path).append(lib);
-                filerefs.append("; sourceTree = SDKROOT; };\n");
+                if(lib.endsWith(".a")) {
+                    //		0FE5A7AB164BC0AA00B35B34 /* libzbarXYZ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbarXYZ.a; path = ../btres/libzbarXYZ.a; sourceTree = "<group>"; };
+                    
+                    filerefs.append(" = { isa = PBXFileReference; lastKnownFileType = ");
+                    filerefs.append(filetype).append("; name = ").append(lib);
+                    filerefs.append("; path = ").append(path).append(lib);
+                    filerefs.append("; sourceTree = SDKROOT; };\n");
+                } else {
+                    filerefs.append(" = { isa = PBXFileReference; lastKnownFileType = ");
+                    filerefs.append(filetype).append("; name = ").append(lib);
+                    filerefs.append("; path = ").append(path).append(lib);
+                    filerefs.append("; sourceTree = \"<group>\"; };\n");
+                }
                 /* Add references frameworks */
                 buildframs.append("\t\t\t\t").append(buildid).append(" /* ").append(lib)
                         .append(" in Frameworks */,\n");
@@ -150,10 +162,20 @@ public class XCodeFile {
             if (fres.isValid()) {
                 filerefs.append("\t\t").append(nextid);
                 filerefs.append(" /* ").append(fname).append(" */");
-                filerefs.append(" = { isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = ");
-                filerefs.append(fres.getType()).append("; path = \"");
-                filerefs.append(fname).append("\"; sourceTree = \"<group>\"; };");
-                filerefs.append('\n');
+                if(fname.endsWith(".a")) {
+                    //		0FE5A7AB164BC0AA00B35B34 /* libzbarXYZ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzbarXYZ.a; path = ../btres/libzbarXYZ.a; sourceTree = "<group>"; };
+                    
+                    filerefs.append(" = { isa = PBXFileReference; lastKnownFileType = ");
+                    filerefs.append("archive.ar; name= ");
+                    filerefs.append(fname).append("; path = \"../btres/");
+                    filerefs.append(fname).append("\"; sourceTree = \"<group>\"; };");
+                    filerefs.append('\n');
+                } else {
+                    filerefs.append(" = { isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = ");
+                    filerefs.append(fres.getType()).append("; path = \"");
+                    filerefs.append(fname).append("\"; sourceTree = \"<group>\"; };");
+                    filerefs.append('\n');
+                }
 
                 display.append("\t\t\t\t").append(nextid);
                 display.append(" /* ").append(fname).append(" */");

@@ -76,6 +76,7 @@ public class XCodeFile extends BuildFile {
 
     static {
         sourcefiles = new HashMap<String, String>();
+        //sourcefiles.put("a", "library");
         sourcefiles.put("c", "sourcecode.c.c");
         sourcefiles.put("m", "sourcecode.c.objc");
         sourcefiles.put("mm", "sourcecode.cpp.objcpp");
@@ -189,6 +190,9 @@ public class XCodeFile extends BuildFile {
                 } else if (lib.endsWith(".dylib")) {
                     filetype = "compiled.mach-o.dylib";
                     path = "usr/lib/";
+                } else if (lib.endsWith(".a")) {
+                    filetype = "archive.ar";
+                    path = "../btres/";
                 } else {
                     Log.error("Unable to parse library " + lib + ". Ignoring.");
                     valid_lib = false;

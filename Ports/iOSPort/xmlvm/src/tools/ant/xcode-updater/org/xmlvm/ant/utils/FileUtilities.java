@@ -170,7 +170,7 @@ public class FileUtilities {
                 }
                 String name = file.getName().toLowerCase();
                 if (name.endsWith(".h") || name.endsWith(".m") || name.endsWith(".c")
-                        || name.endsWith(".cpp") || name.endsWith(".mm") || name.endsWith(".c++")) {
+                        || name.endsWith(".cpp") || name.endsWith(".mm") || name.endsWith(".c++") || name.endsWith(".a")) {
                     return true;
                 }
                 return false;

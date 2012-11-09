@@ -91,7 +91,8 @@ __ANDROIDSRC__			);
 		13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-__FRAMEWORKS__			);
+__FRAMEWORKS__ 
+	);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
@@ -289,6 +290,10 @@ __SRC_BUILD__			);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "../build/xcode/sys/__PROJNAME__-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../btres\"",
+				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = __PROJNAME__;
 				HEADER_SEARCH_PATHS = (
@@ -320,6 +325,10 @@ __SRC_BUILD__			);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "../build/xcode/sys/__PROJNAME__-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../btres\"",
+				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = __PROJNAME__;
 				HEADER_SEARCH_PATHS = (
@@ -349,6 +358,10 @@ __SRC_BUILD__			);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "../build/xcode/sys/__PROJNAME__-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../btres\"",
+				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = __PROJNAME__;
 				HEADER_SEARCH_PATHS = (

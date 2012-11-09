@@ -32,6 +32,7 @@ public class FileResource {
 
     static {
         sourcefiles = new HashMap<String, String>();
+        //sourcefiles.put("a", "sourcecode.a.lib");
         sourcefiles.put("c", "sourcecode.c.c");
         sourcefiles.put("m", "sourcecode.c.objc");
         sourcefiles.put("c++", "sourcecode.cpp.cpp");

@@ -206,6 +206,9 @@ const char* xmlvm_java_string_to_const_char(JAVA_OBJECT s)
 
 JAVA_OBJECT xmlvm_create_java_string(const char* s)
 {
+    if(s == 0) {
+        return 0;
+    }
     java_lang_String* str = __NEW_java_lang_String();
     org_xmlvm_runtime_XMLVMArray* charArray = XMLVMArray_createFromString(s);
     java_lang_String___INIT____char_1ARRAY(str, charArray);
