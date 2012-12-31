@@ -183,7 +183,6 @@ __SRC_BUILD__			);
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -201,7 +200,7 @@ __SRC_BUILD__			);
 				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SEPARATE_STRIP = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				TARGETED_DEVICE_FAMILY = "__SDK_TARGET__";
 				SDKROOT = __SDK_ROOT__;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -222,7 +221,6 @@ __SRC_BUILD__			);
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -236,7 +234,7 @@ __SRC_BUILD__			);
 					"\"${SOURCE_ROOT}/../build/xcode/src/lib/boehmgc/libatomic_ops/src/**\"",
 					"\"${SOURCE_ROOT}/../build/xcode/src/lib/boehmgc/include/**\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				TARGETED_DEVICE_FAMILY = "__SDK_TARGET__";
 				SDKROOT = __SDK_ROOT__;
 			};
@@ -246,7 +244,6 @@ __SRC_BUILD__			);
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -263,7 +260,7 @@ __SRC_BUILD__			);
 					"\"${SOURCE_ROOT}/../build/xcode/src/lib/boehmgc/include/**\"",
 				);
 				SEPARATE_STRIP = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				TARGETED_DEVICE_FAMILY = "__SDK_TARGET__";
 				SDKROOT = __SDK_ROOT__;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
