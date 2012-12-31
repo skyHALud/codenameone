@@ -250,6 +250,8 @@ public class Arguments {
         option_lib.add("CoreMedia.framework~");
         option_lib.add("CoreVideo.framework~");
         option_lib.add("libiconv.dylib~");
+        option_lib.add("libxml2.dylib~");
+        option_lib.add("Security.framework~");
         //option_lib.add("libzbar.a");
 
         // Read command line arguments
