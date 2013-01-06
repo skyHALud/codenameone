@@ -1516,7 +1516,6 @@ java.lang.management.ManagementFactory
 java.net.URLClassLoader
 java.net.URLClassLoader$SubURLClassLoader
 java.nio.ByteOrder
-java.nio.CharSequenceAdapter
 java.nio.InvalidMarkException
 java.nio.channels.AlreadyConnectedException
 java.nio.channels.AsynchronousCloseException
@@ -1891,14 +1890,11 @@ java.text.CollationElementIterator
 java.text.CollationKey
 java.text.Collator
 java.text.Collator$1
-java.text.DateFormat
 java.text.DateFormat$Field
-java.text.DateFormatSymbols
 java.text.DecimalFormat
 java.text.DecimalFormat$1
 java.text.DecimalFormatSymbols
 java.text.FieldPosition
-java.text.Format
 java.text.Format$1
 java.text.Format$Field
 java.text.MessageFormat
@@ -1908,11 +1904,9 @@ java.text.Normalizer
 java.text.Normalizer$Form
 java.text.NumberFormat
 java.text.NumberFormat$Field
-java.text.ParseException
 java.text.ParsePosition
 java.text.RuleBasedBreakIterator
 java.text.RuleBasedCollator
-java.text.SimpleDateFormat
 java.text.StringCharacterIterator
 java.text.spi.BreakIteratorProvider
 java.text.spi.CollatorProvider
