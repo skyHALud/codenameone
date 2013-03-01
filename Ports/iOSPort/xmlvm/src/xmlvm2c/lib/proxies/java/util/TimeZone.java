@@ -94,13 +94,23 @@ public abstract class TimeZone implements Serializable, Cloneable {
         }
     }
     
+    private static native String getTimezoneId();
+    private static native int getTimezoneOffset(String name, int year, int month, int day, int timeOfDayMillis);
+    private static native int getTimezoneRawOffset(String name);
+    private static native boolean isTimezoneDST(String name, long millis);
+    
     /**
      * Returns the system's installed time zone IDs. Any of these IDs can be
      * passed to {@link #getTimeZone} to lookup the corresponding time zone
      * instance.
      */
     public static synchronized String[] getAvailableIDs() {
-        return new String[] {"GMT"};//ZoneInfoDB.getAvailableIDs();
+        String i = getTimezoneId();
+        if(i.equals("GMT")) {
+            return new String[] {"GMT"};//ZoneInfoDB.getAvailableIDs();
+        } else {
+            return new String[] {"GMT", i};
+        }
     }
     
     /**
@@ -111,7 +121,7 @@ public abstract class TimeZone implements Serializable, Cloneable {
      * @return a possibly-empty array.
      */
     public static synchronized String[] getAvailableIDs(int offsetMillis) {
-        return new String[] {"GMT"};//ZoneInfoDB.getAvailableIDs(offsetMillis);
+        return getAvailableIDs();
     }
     
     /**
@@ -122,11 +132,36 @@ public abstract class TimeZone implements Serializable, Cloneable {
      * value. Instead, use this method to look it up for each use.
      */
     public static synchronized TimeZone getDefault() {
-        /*if (defaultTimeZone == null) {
-            defaultTimeZone = ZoneInfoDB.getSystemDefault();
+        if (defaultTimeZone == null) {
+            final String tzone = getTimezoneId();
+            defaultTimeZone = new TimeZone() {
+                @Override
+                public int getOffset(int era, int year, int month, int day, int dayOfWeek, int timeOfDayMillis) {
+                    return getTimezoneOffset(tzone, year, month, day, timeOfDayMillis);
+                }
+
+                @Override
+                public int getRawOffset() {
+                    return getTimezoneRawOffset(tzone);
+                }
+
+                @Override
+                public boolean inDaylightTime(Date time) {
+                    return isTimezoneDST(tzone, time.getTime());
+                }
+
+                @Override
+                public void setRawOffset(int offsetMillis) {
+                }
+
+                @Override
+                public boolean useDaylightTime() {
+                    return true;
+                }
+            };
+            defaultTimeZone.ID = tzone;
         }
-        return (TimeZone) defaultTimeZone.clone();*/
-        return GMT;
+        return defaultTimeZone;
     }
     
     /**
