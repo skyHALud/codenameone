@@ -427,6 +427,11 @@ void XMLVMArray_fillArray(JAVA_OBJECT array, void* data)
 
 int XMLVMArray_count(JAVA_OBJECT array)
 {
+#ifdef XMLVM_ENABLE_NPE_CHECK
+    if(array == JAVA_NULL) {
+        XMLVM_THROW(java_lang_NullPointerException)
+    }
+#endif
     org_xmlvm_runtime_XMLVMArray* a = (org_xmlvm_runtime_XMLVMArray*) array;
     return a->fields.org_xmlvm_runtime_XMLVMArray.length_;
 }
