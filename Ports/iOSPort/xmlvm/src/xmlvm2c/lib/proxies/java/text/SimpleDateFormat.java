@@ -349,17 +349,25 @@ public class SimpleDateFormat extends DateFormat {
 					v = calendar.get(Calendar.DAY_OF_MONTH);
 					toAppendTo.append(leftPad(v, len));
 					break;
-				case HOUR_LETTER :
-				case HOUR_1_LETTER :
-				case HOUR12_LETTER :
-				case HOUR12_1_LETTER :
-					v = calendar.get(Calendar.HOUR_OF_DAY);
-					if (patternChar == HOUR_1_LETTER || patternChar == HOUR12_1_LETTER) {
-						v += 1;
-					}
-					if (patternChar == HOUR12_LETTER || patternChar == HOUR12_1_LETTER) {
-						v %= 12;
-					}
+                                case HOUR_LETTER :
+                                case HOUR_1_LETTER :
+                                case HOUR12_LETTER :
+                                case HOUR12_1_LETTER :
+                                        v = calendar.get(Calendar.HOUR_OF_DAY);
+
+                                        if (patternChar == HOUR_1_LETTER && v == 0) {
+                                            v = 24;
+                                        }
+                                        if (patternChar == HOUR12_1_LETTER) {
+                                            v %= 12;
+                                            if (v == 0) {
+                                                v = 12;
+                                            }
+                                        } else {
+                                            if (patternChar == HOUR12_LETTER) {
+                                                v %= 12;
+                                            }
+                                        }
 					toAppendTo.append(leftPad(v, len));
 					break;
 				case MINUTE_LETTER :
