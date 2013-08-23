@@ -145,10 +145,6 @@ public class DateFormat extends Format {
 	public static final DateFormat getInstance() {
 		return getDateTimeInstance(SHORT, SHORT);
 	}
-        
-        public static final DateFormat getDateTimeInstance() {
-            return getInstance();
-        }
 
 	/**
 	 * Get a DateFormat instance with default style for date (SHORT). 

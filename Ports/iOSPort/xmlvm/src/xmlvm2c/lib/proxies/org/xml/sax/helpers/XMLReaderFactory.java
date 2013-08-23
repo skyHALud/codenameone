@@ -126,7 +126,8 @@ final public class XMLReaderFactory
     public static XMLReader createXMLReader (String className)
 	throws SAXException
     {
-	return loadClass (NewInstance.getClassLoader (), className);
+	//return loadClass (NewInstance.getClassLoader (), className);
+        return null;
     }
 
     private static XMLReader loadClass (ClassLoader loader, String className)

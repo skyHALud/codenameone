@@ -25,7 +25,6 @@ package java.text;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.TimeZone;
 import java.util.Vector;
 
@@ -187,13 +186,6 @@ public class SimpleDateFormat extends DateFormat {
 		this.pattern = pattern;
 	}
 
-        public SimpleDateFormat(String pattern, Locale l) {
-		this(pattern);
-	}
-
-        public void setTimeZone(TimeZone t) {
-        }
-        
 	/**
 	 * @return the pattern
 	 */

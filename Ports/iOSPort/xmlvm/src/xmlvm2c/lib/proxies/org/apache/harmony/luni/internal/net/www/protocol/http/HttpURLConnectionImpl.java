@@ -1270,8 +1270,8 @@ public class HttpURLConnectionImpl extends HttpURLConnection {
         super.setIfModifiedSince(newValue);
         // convert from millisecond since epoch to date string
         SimpleDateFormat sdf = new SimpleDateFormat(
-                "E, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US); //$NON-NLS-1$
-        sdf.setTimeZone(TimeZone.getTimeZone("GMT")); //$NON-NLS-1$
+                "E, dd MMM yyyy HH:mm:ss 'GMT'"); //$NON-NLS-1$
+        //sdf.setTimeZone(TimeZone.getTimeZone("GMT")); //$NON-NLS-1$
         String date = sdf.format(new Date(newValue));
         reqHeader.add("If-Modified-Since", date); //$NON-NLS-1$
     }

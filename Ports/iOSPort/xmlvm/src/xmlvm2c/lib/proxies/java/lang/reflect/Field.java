@@ -17,8 +17,8 @@
 
 package java.lang.reflect;
 
-import sun.reflect.FieldAccessor;
-import sun.reflect.generics.repository.FieldRepository;
+//import sun.reflect.FieldAccessor;
+//import sun.reflect.generics.repository.FieldRepository;
 
 /**
  * This class represents a field. Information about the field can be accessed,

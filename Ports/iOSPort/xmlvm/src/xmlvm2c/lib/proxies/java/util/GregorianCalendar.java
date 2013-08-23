@@ -492,11 +492,17 @@ public class GregorianCalendar extends Calendar {
             month++;
         }
         fields[DAY_OF_WEEK] = mod7(days - 3) + 1;
-        int dstOffset = fields[YEAR] <= 0 ? 0 : getTimeZone().getOffset(AD,
-                                                                        fields[YEAR], month, date, fields[DAY_OF_WEEK], millis);
-        if (fields[YEAR] > 0) {
-            dstOffset -= zoneOffset;
+        //int dstOffset = fields[YEAR] <= 0 ? 0 : getTimeZone().getOffset(AD,
+        //                                                                fields[YEAR], month, date, fields[DAY_OF_WEEK], millis);
+        //if (fields[YEAR] > 0) {
+        //    dstOffset -= zoneOffset;
+        //}
+        
+        int dstOffset = 0;
+        if(getTimeZone().inDaylightTime(new java.util.Date(timeVal))) {
+            dstOffset = getTimeZone().getDSTSavings();
         }
+        
         fields[DST_OFFSET] = dstOffset;
         if (dstOffset != 0) {
             long oldDays = days;
